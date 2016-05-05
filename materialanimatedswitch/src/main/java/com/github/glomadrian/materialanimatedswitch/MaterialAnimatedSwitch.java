@@ -43,6 +43,7 @@ public class MaterialAnimatedSwitch extends View {
   private BallMoveObservable ballMoveObservable;
   private boolean isClickable = true;
   private OnCheckedChangeListener onCheckedChangeListener;
+  private OnInitFinishedListener onInitFinishedListener;
 
   public MaterialAnimatedSwitch(Context context) {
     super(context);
@@ -66,6 +67,7 @@ public class MaterialAnimatedSwitch extends View {
     actualState = MaterialAnimatedSwitchState.INIT;
     setState(actualState);
     setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+    onInitFinishedListener.onInitFinished();
   }
 
   private void initPainters() {
@@ -205,8 +207,17 @@ public class MaterialAnimatedSwitch extends View {
     this.onCheckedChangeListener = onCheckedChangeListener;
   }
 
+  public void setOnInitFinishedListener(OnInitFinishedListener listener) {
+    this.onInitFinishedListener = listener;
+  }
+
   public interface OnCheckedChangeListener {
 
     void onCheckedChanged(boolean isChecked);
+  }
+
+  public interface OnInitFinishedListener {
+
+    void onInitFinished();
   }
 }
