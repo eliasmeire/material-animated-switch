@@ -134,7 +134,7 @@ public class MaterialAnimatedSwitch extends View {
     invalidate();
   }
 
-  private void setState(MaterialAnimatedSwitchState materialAnimatedSwitchState) {
+  public void setState(MaterialAnimatedSwitchState materialAnimatedSwitchState) {
     basePainter.setState(materialAnimatedSwitchState);
     ballPainter.setState(materialAnimatedSwitchState);
     ballShadowPainter.setState(materialAnimatedSwitchState);
