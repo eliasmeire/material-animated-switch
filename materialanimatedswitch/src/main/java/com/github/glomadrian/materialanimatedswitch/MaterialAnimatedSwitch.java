@@ -67,7 +67,9 @@ public class MaterialAnimatedSwitch extends View {
     actualState = MaterialAnimatedSwitchState.INIT;
     setState(actualState);
     setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-    onInitFinishedListener.onInitFinished();
+    if(MaterialAnimatedSwitch.this.onCheckedChangeListener != null) {
+      onInitFinishedListener.onInitFinished();
+    }
   }
 
   private void initPainters() {
