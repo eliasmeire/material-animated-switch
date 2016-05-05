@@ -60,7 +60,6 @@ public class BallPainter implements SwitchInboxPinnedPainter {
     ballStartPositionX = (int) context.getResources().getDimension(R.dimen.ball_start_position);
     ballPositionX = padding;
     initAnimator();
-    initColorAnimator();
   }
 
   private void initAnimator() {
